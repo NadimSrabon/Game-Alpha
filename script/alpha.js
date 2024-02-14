@@ -11,6 +11,18 @@ function startPlay(){
 
 
 
+function addBackgroundColorById(elementId){
+
+    const element = document.getElementById(elementId);
+    element.classList.add('bg-orange-400');
+}
+
+
+function removeBackgroundColorById(elementId){
+    const element = document.getElementById(elementId);
+    element.classList.remove('bg-orange-400');
+}
+
 
 function generateAlphabet(){
     const alphabate = 'abcdefghijklmnopqrstuvwxyz';
@@ -23,6 +35,37 @@ function generateAlphabet(){
     return getAlphabet
 
 }
+
+function keyPad(event){
+    const playerPressed = event.key;
+    console.log('Key Is Pressed',playerPressed)
+
+    // --------Expected To be Pressed--------------
+
+    const elementShow = document.getElementById('element-show');
+    const CurrentAlphabet = elementShow.innerText;
+    const expectedAlphabet = CurrentAlphabet.toLowerCase();
+    console.log('Expected is',elementShow.innerText)
+    
+
+
+
+    if(playerPressed === expectedAlphabet){
+        console.log('Thik Ase')
+        // removeBackgroundColorById(elementId);
+        continueGame();
+        
+
+    }
+    else{
+        console.log('Thik Nai')
+    }
+
+
+
+
+}
+document.addEventListener('keyup',keyPad)
 
 
 
@@ -38,8 +81,6 @@ function continueGame(){
 
 
 
-function addBackgroundColorById(elementId){
 
-    const element = document.getElementById(elementId);
-    element.classList.add('bg-orange-400');
-}
+
+
